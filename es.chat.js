@@ -69,7 +69,7 @@ class ESChat {
     chatBoxClassList.contains('show') ? chatBoxClassList.remove('show') : chatBoxClassList.add('show');
     setTimeout(() => {
       chatBoxCloudClassList.contains('show') ? chatBoxCloudClassList.remove('show') : chatBoxCloudClassList.add('show');
-    }, 200);
+    }, 0);
   }
   formButtonVector() {
     this.chatButtonSvgEl = cElNS(xmlns, 'svg');
