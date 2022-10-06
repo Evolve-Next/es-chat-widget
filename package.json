@@ -1,0 +1,19 @@
+{
+  "name": "cdn-es-chat-widget",
+  "version": "1.0.0",
+  "description": "CDN Delivery of ES Chat Widget",
+  "main": "es.chat.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Evolve-Next/es-chat-widget.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Evolve-Next/es-chat-widget/issues"
+  },
+  "homepage": "https://github.com/Evolve-Next/es-chat-widget#readme"
+}

@@ -1,14 +1,11 @@
-# EasySocial Chat Widget
+# ES Chat Widget
 
 ```html
-<script src="/es.chat.js"></script>
-<script>
-  new ESChat({
-    primary: { main: '#00cd39', dark: '#266256' },
-    status: { online: '#00cd39', offline: '#ffff00' },
-    body: { bg: '#E2D7CD' },
-    footer: { bg: '#ffffff' },
-    businessId: 1
-  }).init();
-</script>
+<script id="es-chat" src="/es.chat.js?t=chat.widget.token"></script>
+```
+
+or
+
+```html
+<script id="es-chat" src="/es.chat.min.js?t=chat.widget.token"></script>
 ```
