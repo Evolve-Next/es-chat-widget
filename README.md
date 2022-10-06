@@ -1,11 +1,11 @@
 # ES Chat Widget
 
 ```html
-<script id="es-chat" src="/es.chat.js?t=chat.widget.token"></script>
+<script src="https://cdn.jsdelivr.net/npm/es-chat-widget/es.chat.js?t=chat.widget.token"></script>
 ```
 
 or
 
 ```html
-<script id="es-chat" src="/es.chat.min.js?t=chat.widget.token"></script>
+<script src="https://cdn.jsdelivr.net/npm/es-chat-widget/es.chat.min.js?t=chat.widget.token"></script>
 ```

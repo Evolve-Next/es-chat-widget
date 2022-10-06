@@ -24,7 +24,7 @@ class ESChat {
   }
 
   async init() {
-    const req = await fetch('https://cdn.jsdelivr.net/npm/cdn-es-chat-widget/static/api.json', {
+    const req = await fetch('/static/api.json', {
       method: 'GET',
       headers: {
         'X-Widget-Token': this.token
@@ -57,7 +57,7 @@ class ESChat {
     const link = cEL('link');
     link.setAttribute('rel', 'stylesheet');
     link.setAttribute('type', 'text/css');
-    link.setAttribute('href', 'https://cdn.jsdelivr.net/npm/cdn-es-chat-widget/es.chat.min.css');
+    link.setAttribute('href', 'https://cdn.jsdelivr.net/npm/es-chat-widget/es.chat.min.css');
     this.head.appendChild(link);
   }
   formContainer() {
