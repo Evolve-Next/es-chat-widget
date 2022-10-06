@@ -1,6 +1,6 @@
 {
   "name": "es-chat-widget",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "CDN Delivery of ES Chat Widget",
   "main": "es.chat.js",
   "scripts": {
