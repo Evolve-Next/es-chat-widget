@@ -4,7 +4,7 @@
   "message": "Initialize Successfully",
   "payload": {
     "businessId": 1,
-    "businessLogo": "/whatsapp-dp.svg",
+    "businessLogo": "https://cdn.jsdelivr.net/npm/cdn-es-chat-widget/whatsapp-dp.svg",
     "businessName": "EasySocial",
     "businessStatus": "online",
     "buttonLabel": "Start Chat",
