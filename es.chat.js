@@ -57,7 +57,7 @@ class ESChat {
     const link = cEL('link');
     link.setAttribute('rel', 'stylesheet');
     link.setAttribute('type', 'text/css');
-    link.setAttribute('href', 'https://cdn.jsdelivr.net/npm/es-chat-widget/es.chat.min.css');
+    link.setAttribute('href', 'https://cdn.jsdelivr.net/npm/es-chat/es.chat.min.css');
     this.head.appendChild(link);
   }
   formContainer() {
