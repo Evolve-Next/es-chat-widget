@@ -54,7 +54,7 @@ class ESChat {
     const link = cEL('link');
     link.setAttribute('rel', 'stylesheet');
     link.setAttribute('type', 'text/css');
-    link.setAttribute('href', 'https://cdn.jsdelivr.net/npm/es-chat/es.chat.min.css');
+    link.setAttribute('href', '/es.chat.css');
     this.head.appendChild(link);
   }
   formContainer() {
@@ -83,9 +83,12 @@ class ESChat {
   onChatButtonClick() {
     const chatBoxEl = $('.chat-box');
     const chatBoxCloudEl = $('.chat-cloud');
+    const chatButtonEl = $('.es-chat-iconButton');
     const chatBoxClassList = chatBoxEl.classList;
     const chatBoxCloudClassList = chatBoxCloudEl.classList;
+    const chatButtonClassList = chatButtonEl.classList;
     chatBoxClassList.contains('show') ? chatBoxClassList.remove('show') : chatBoxClassList.add('show');
+    chatButtonClassList.contains('clicked') ? chatButtonClassList.remove('clicked') : chatButtonClassList.add('clicked');
     setTimeout(() => {
       chatBoxCloudClassList.contains('show') ? chatBoxCloudClassList.remove('show') : chatBoxCloudClassList.add('show');
     }, 0);
@@ -130,11 +133,13 @@ class ESChat {
     this.chatBoxHeaderEl.classList.add('header');
     this.formChatBoxHeaderDP();
     this.formChatBoxHeaderContent();
+    this.formChatBoxHeaderDismiss();
   }
   injectChatBoxHeader() {
     this.chatBoxEl.append(this.chatBoxHeaderEl);
     this.injectChatBoxHeaderDP();
     this.injectChatBoxHeaderContent();
+    this.injectChatBoxHeaderDismiss();
   }
   formChatBoxHeaderDP() {
     this.chatBoxHeaderDPWrapEl = cEL('div');
@@ -147,8 +152,8 @@ class ESChat {
     this.chatBoxHeaderDPEl.src = this.config.businessLogo;
     this.chatBoxHeaderDPEl.alt = 'DP';
     this.chatBoxHeaderDPEl.loading = 'lazy';
-    this.chatBoxHeaderDPEl.height = 38;
-    this.chatBoxHeaderDPEl.width = 38;
+    this.chatBoxHeaderDPEl.height = 60;
+    this.chatBoxHeaderDPEl.width = 60;
     this.chatBoxHeaderDPStatusEl.style.backgroundColor = this.config.colors.status;
   }
   injectChatBoxHeaderDP() {
@@ -161,7 +166,7 @@ class ESChat {
     this.chatBoxHeaderNameEl = cEL('h5');
     this.chatBoxHeaderDescEl = cEL('h6');
 
-    this.chatBoxHeaderContentEl.classList.add('right');
+    this.chatBoxHeaderContentEl.classList.add('main');
     this.chatBoxHeaderNameEl.classList.add('name');
     this.chatBoxHeaderDescEl.classList.add('desc');
     this.chatBoxHeaderNameEl.style.color = this.config.colors.primary;
@@ -174,6 +179,34 @@ class ESChat {
     this.chatBoxHeaderContentEl.append(this.chatBoxHeaderNameEl);
     this.chatBoxHeaderContentEl.append(this.chatBoxHeaderDescEl);
     this.chatBoxHeaderEl.append(this.chatBoxHeaderContentEl);
+  }
+  formCrossVector() {
+    this.crossButtonSvgEl = cElNS(xmlns, 'svg');
+    this.crossButtonSvgEl.setAttributeNS(null, 'viewBox', '0 0 20 20');
+    this.formCrossButtonVectorPath();
+  }
+  formCrossButtonVectorPath() {
+    this.crossButtonSvgPathEl = cElNS(xmlns, 'path');
+    this.crossButtonSvgPathEl.setAttributeNS(
+      null,
+      'd',
+      'M9.89944 7.77811L2.8284 0.707062C2.4379 0.316559 1.80472 0.316559 1.41422 0.707062L0.707062 1.41415C0.316559 1.80472 0.316559 2.4379 0.707062 2.8284L7.77811 9.89944L0.707062 16.9706C0.316559 17.3611 0.316559 17.9942 0.707062 18.3847L1.41422 19.0919C1.80472 19.4824 2.4379 19.4824 2.8284 19.0919L9.89944 12.0208L16.9706 19.0918C17.3611 19.4824 17.9943 19.4824 18.3848 19.0918L19.0918 18.3847C19.4825 17.9942 19.4825 17.3611 19.0918 16.9706L12.0208 9.89951L19.0918 2.8284C19.4823 2.4379 19.4823 1.80472 19.0918 1.41415L18.3848 0.707062C17.9942 0.316559 17.3611 0.316559 16.9705 0.707062L9.89944 7.77811Z'
+    );
+    this.crossButtonSvgPathEl.setAttributeNS(null, 'fill-rule', 'evenodd');
+    this.crossButtonSvgPathEl.setAttributeNS(null, 'clip-rule', 'evenodd');
+    this.crossButtonSvgPathEl.setAttributeNS(null, 'fill', this.config.colors.primary);
+    this.crossButtonSvgEl.append(this.crossButtonSvgPathEl);
+  }
+  formChatBoxHeaderDismiss() {
+    this.formCrossVector();
+    this.chatBoxDismissButtonEl = cEL('button');
+    this.chatBoxDismissButtonEl.setAttribute('aria-label', 'dismiss');
+    this.chatBoxDismissButtonEl.className = 'es-chat-dismiss';
+    this.chatBoxDismissButtonEl.addEventListener('click', this.onChatButtonClick);
+  }
+  injectChatBoxHeaderDismiss() {
+    this.chatBoxDismissButtonEl.append(this.crossButtonSvgEl);
+    this.chatBoxHeaderEl.append(this.chatBoxDismissButtonEl);
   }
   formChatBoxBody() {
     this.chatBoxBodyEl = cEL('div');
