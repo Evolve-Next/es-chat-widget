@@ -54,12 +54,13 @@ class ESChat {
     const link = cEL('link');
     link.setAttribute('rel', 'stylesheet');
     link.setAttribute('type', 'text/css');
-    link.setAttribute('href', '/es.chat.css');
+    link.setAttribute('href', 'https://cdn.easysocial.in/es.chat.min.css');
     this.head.appendChild(link);
   }
   formContainer() {
     this.chatContainerEl = cEL('div');
-    this.chatContainerEl.className = 'es-chat-container';
+    this.chatContainerEl.classList.add('es-chat-container');
+    this.chatContainerEl.classList.add(this.config.orientation !== undefined && this.config.orientation === 'left' ? 'left' : 'right');
     this.formButton();
     this.formChatBox();
   }
@@ -249,10 +250,10 @@ class ESChat {
     this.chatBoxFooterButtonIconPathEl.setAttributeNS(null, 'fill', this.config.colors.primary);
     this.chatBoxFooterButtonLabelEl.innerHTML = this.config.buttonLabel;
     this.chatBoxFooterButtonEl.style.backgroundColor = this.config.colors.secondary;
-    this.chatBoxFooterPoweredEl.innerHTML = `POWERED BY <a href="${this.config.buttonLink}" target="_blank">EASYSOCIAL.IO</a>`;
+    this.chatBoxFooterPoweredEl.innerHTML = `POWERED BY <a href="https://wa.me/917229970970?text=Hello" target="_blank">EASYSOCIAL.IO</a>`;
     this.chatBoxFooterEl.classList.add('footer');
     this.chatBoxFooterButtonEl.classList.add('start-button');
-    this.chatBoxFooterButtonEl.setAttribute('href', 'https://wa.me/917229970970?text=Hello');
+    this.chatBoxFooterButtonEl.setAttribute('href', this.config.buttonLink);
     this.chatBoxFooterButtonEl.setAttribute('target', '_blank');
     this.chatBoxFooterButtonLabelEl.classList.add('label');
     this.chatBoxFooterPoweredEl.classList.add('powered-by');

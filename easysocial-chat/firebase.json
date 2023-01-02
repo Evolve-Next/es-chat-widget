@@ -1,0 +1,17 @@
+{
+  "hosting": {
+    "site": "easysocial-chat",
+    "public": ".",
+    "headers": [
+      {
+        "source": "**/*",
+        "headers": [
+          {
+            "key": "X-Frame-Options",
+            "value": "*"
+          }
+        ]
+      }
+    ]
+  }
+}
