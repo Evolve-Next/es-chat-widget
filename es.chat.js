@@ -273,7 +273,7 @@ class ESChat {
         minute: '2-digit',
         hour12: true
       });
-      this.onChatButtonClick();
+      setTimeout(() => this.onChatButtonClick(), 300);
     });
     this.chatBoxFooterButtonEl.addEventListener('click', this.onChatButtonClick);
     this.injectContainer();

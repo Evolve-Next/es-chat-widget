@@ -1,12 +1,6 @@
 @keyframes press {
-  0% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(0.92);
-  }
   to {
-    transform: scale(1);
+    transform: scale(0.92);
   }
 }
 @keyframes ripple {
@@ -27,7 +21,7 @@
   bottom: 20px;
   display: flex;
   row-gap: 8px;
-  z-index: 9999;
+  z-index: 9999999999999999;
   position: fixed;
   pointer-events: none;
   max-width: 370px;
@@ -88,14 +82,10 @@
   justify-content: center;
   align-items: center;
   position: absolute;
-  top: -8px;
-  left: -8px;
-  right: 0;
-  bottom: 0;
-  content: "";
+  content: '';
   height: 100%;
   width: 100%;
-  border: 8px solid #00000033;
+  border: 0px solid #00000033;
   border-radius: 100%;
   animation-name: ripple;
   animation-duration: 3s;
@@ -111,14 +101,10 @@
   justify-content: center;
   align-items: center;
   position: absolute;
-  top: -8px;
-  left: -8px;
-  right: 0;
-  bottom: 0;
-  content: "";
+  content: '';
   height: 100%;
   width: 100%;
-  border: 8px solid #00000033;
+  border: 0px solid #00000033;
   border-radius: 100%;
   animation-name: ripple;
   animation-duration: 3s;
@@ -127,8 +113,9 @@
   animation-timing-function: cubic-bezier(0.65, 0, 0.34, 1);
   z-index: -9;
 }
+.es-chat-container .es-chat-iconButton:focus,
 .es-chat-container .es-chat-iconButton:active {
-  animation: press 0.2s 1 linear;
+  animation: press 0.2s 1 forwards;
 }
 .es-chat-container .es-chat-iconButton svg {
   user-select: none;
@@ -245,7 +232,7 @@
   row-gap: 5px;
 }
 .es-chat-container .chat-box .body .chat-cloud .content:before {
-  content: "";
+  content: '';
   border-top: 9px solid #ffffff;
   border-left: 8px solid transparent;
   filter: drop-shadow(0 2px 0 rgba(0, 0, 0, 0.1019607843));
