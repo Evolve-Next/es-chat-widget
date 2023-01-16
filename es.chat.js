@@ -70,9 +70,9 @@ class ESChat {
     this.body.appendChild(this.chatContainerEl);
   }
   formButton() {
-    this.chatButtonEl = cEL('button');
+    this.chatButtonEl = cEL('a');
     this.chatButtonEl.className = 'es-chat-iconButton';
-    this.chatButtonEl.type = 'button';
+    this.chatButtonEl.href = 'javascript:void(0);';
     this.chatButtonEl.ariaLabel = 'Chat With Us';
     this.chatButtonEl.tabIndex = '0';
     this.formButtonVector();
@@ -200,9 +200,10 @@ class ESChat {
   }
   formChatBoxHeaderDismiss() {
     this.formCrossVector();
-    this.chatBoxDismissButtonEl = cEL('button');
+    this.chatBoxDismissButtonEl = cEL('a');
     this.chatBoxDismissButtonEl.setAttribute('aria-label', 'dismiss');
     this.chatBoxDismissButtonEl.className = 'es-chat-dismiss';
+    this.chatBoxDismissButtonEl.href = 'javascript:void(0);';
     this.chatBoxDismissButtonEl.addEventListener('click', this.onChatButtonClick);
   }
   injectChatBoxHeaderDismiss() {
