@@ -192,7 +192,7 @@ class ESChat {
       this.chatBoxFooterButtonIconPathEl.setAttributeNS(null, 'fill', this.config.colors.primary),
       (this.chatBoxFooterButtonLabelEl.innerHTML = this.config.buttonLabel),
       (this.chatBoxFooterButtonEl.style.backgroundColor = this.config.colors.secondary),
-      (this.chatBoxFooterPoweredEl.innerHTML = 'POWERED BY <a href="https://wa.me/917229970970?text=Hello" target="_blank">EASYSOCIAL.IO</a>'),
+      (this.chatBoxFooterPoweredEl.innerHTML = `POWERED BY <a href="${this.config.buttonLink}" target="_blank">${this.config.brandName}</a>`),
       this.chatBoxFooterEl.classList.add('footer'),
       this.chatBoxFooterButtonEl.classList.add('start-button'),
       this.chatBoxFooterButtonEl.setAttribute('href', this.config.buttonLink),
