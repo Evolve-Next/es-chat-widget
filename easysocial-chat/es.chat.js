@@ -14,10 +14,10 @@ const xmlns = 'http://www.w3.org/2000/svg',
     : searchParams.get('token')
 class ESChat {
   constructor (t) {
-    ;(this.head = jQ('head')),
+    (this.head = jQ('head')),
       (this.body = jQ('body')),
       (this.token = t),
-      this.init()
+      this.init();
   }
   async init () {
     this.fontSetup(), this.styleSetup()
@@ -50,7 +50,7 @@ class ESChat {
       this.head.appendChild(t)
   }
   formContainer () {
-    ;(this.chatContainerEl = cEL('div')),
+    (this.chatContainerEl = cEL('div')),
       this.chatContainerEl.classList.add('es-chat-container'),
       this.chatContainerEl.classList.add(
         void 0 !== this.config.orientation &&
@@ -59,7 +59,7 @@ class ESChat {
           : 'es-right'
       ),
       this.formButton(),
-      this.formChatBox()
+      this.formChatBox();
   }
   injectContainer () {
     this.injectButton(),
@@ -67,12 +67,12 @@ class ESChat {
       this.body.appendChild(this.chatContainerEl)
   }
   formButton () {
-    ;(this.chatButtonEl = cEL('a')),
+    (this.chatButtonEl = cEL('a')),
       (this.chatButtonEl.className = 'es-chat-iconButton'),
       (this.chatButtonEl.href = 'javascript:void(0);'),
       (this.chatButtonEl.ariaLabel = 'Chat With Us'),
       (this.chatButtonEl.tabIndex = '0'),
-      this.formButtonVector()
+      this.formButtonVector();
   }
   injectButton () {
     this.chatContainerEl.prepend(this.chatButtonEl), this.injectButtonVector()
@@ -91,16 +91,16 @@ class ESChat {
       }, 0)
   }
   formButtonVector () {
-    ;(this.chatButtonSvgEl = cElNS(xmlns, 'svg')),
+    (this.chatButtonSvgEl = cElNS(xmlns, 'svg')),
       this.chatButtonSvgEl.setAttributeNS(null, 'viewBox', '0 0 24 24'),
-      this.formButtonVectorPath()
+      this.formButtonVectorPath();
   }
   injectButtonVector () {
     this.chatButtonEl.appendChild(this.chatButtonSvgEl),
       this.injectButtonVectorPath()
   }
   formButtonVectorPath () {
-    ;(this.chatButtonSvgPathEl = cElNS(xmlns, 'path')),
+    (this.chatButtonSvgPathEl = cElNS(xmlns, 'path')),
       this.chatButtonSvgPathEl.setAttributeNS(
         null,
         'd',
@@ -110,17 +110,17 @@ class ESChat {
         null,
         'fill',
         this.config.colors.secondary
-      )
+      );
   }
   injectButtonVectorPath () {
     this.chatButtonSvgEl.appendChild(this.chatButtonSvgPathEl)
   }
   formChatBox () {
-    ;(this.chatBoxEl = cEL('div')),
+    (this.chatBoxEl = cEL('div')),
       this.chatBoxEl.classList.add('es-chat-box'),
       this.formChatBoxHeader(),
       this.formChatBoxBody(),
-      this.formChatBoxFooter()
+      this.formChatBoxFooter();
   }
   injectChatBox () {
     this.injectChatBoxHeader(),
@@ -129,13 +129,13 @@ class ESChat {
       this.chatContainerEl.prepend(this.chatBoxEl)
   }
   formChatBoxHeader () {
-    ;(this.chatBoxHeaderEl = cEL('div')),
+    (this.chatBoxHeaderEl = cEL('div')),
       (this.chatBoxHeaderEl.style.backgroundColor =
         this.config.colors.foreGround),
       this.chatBoxHeaderEl.classList.add('es-header'),
       this.formChatBoxHeaderDP(),
       this.formChatBoxHeaderContent(),
-      this.formChatBoxHeaderDismiss()
+      this.formChatBoxHeaderDismiss();
   }
   injectChatBoxHeader () {
     this.chatBoxEl.append(this.chatBoxHeaderEl),
@@ -144,7 +144,7 @@ class ESChat {
       this.injectChatBoxHeaderDismiss()
   }
   formChatBoxHeaderDP () {
-    ;(this.chatBoxHeaderDPWrapEl = cEL('div')),
+    (this.chatBoxHeaderDPWrapEl = cEL('div')),
       (this.chatBoxHeaderDPEl = cEL('img')),
       (this.chatBoxHeaderDPStatusEl = cEL('span')),
       this.chatBoxHeaderDPWrapEl.classList.add('es-avatar'),
@@ -155,7 +155,7 @@ class ESChat {
       (this.chatBoxHeaderDPEl.height = 60),
       (this.chatBoxHeaderDPEl.width = 60),
       (this.chatBoxHeaderDPStatusEl.style.backgroundColor =
-        this.config.colors.status)
+        this.config.colors.status);
   }
   injectChatBoxHeaderDP () {
     this.chatBoxHeaderDPWrapEl.append(this.chatBoxHeaderDPEl),
@@ -163,7 +163,7 @@ class ESChat {
       this.chatBoxHeaderEl.append(this.chatBoxHeaderDPWrapEl)
   }
   formChatBoxHeaderContent () {
-    ;(this.chatBoxHeaderContentEl = cEL('div')),
+    (this.chatBoxHeaderContentEl = cEL('div')),
       (this.chatBoxHeaderNameEl = cEL('h5')),
       (this.chatBoxHeaderDescEl = cEL('h6')),
       this.chatBoxHeaderContentEl.classList.add('es-main'),
@@ -172,7 +172,7 @@ class ESChat {
       (this.chatBoxHeaderNameEl.style.color = this.config.colors.primary),
       (this.chatBoxHeaderDescEl.style.color = this.config.colors.primary),
       (this.chatBoxHeaderNameEl.innerHTML = this.config.businessName),
-      (this.chatBoxHeaderDescEl.innerHTML = this.config.businessStatus)
+      (this.chatBoxHeaderDescEl.innerHTML = this.config.businessStatus);
   }
   injectChatBoxHeaderContent () {
     this.chatBoxHeaderContentEl.append(this.chatBoxHeaderNameEl),
@@ -180,12 +180,12 @@ class ESChat {
       this.chatBoxHeaderEl.append(this.chatBoxHeaderContentEl)
   }
   formCrossVector () {
-    ;(this.crossButtonSvgEl = cElNS(xmlns, 'svg')),
+    (this.crossButtonSvgEl = cElNS(xmlns, 'svg')),
       this.crossButtonSvgEl.setAttributeNS(null, 'viewBox', '0 0 20 20'),
-      this.formCrossButtonVectorPath()
+      this.formCrossButtonVectorPath();
   }
   formCrossButtonVectorPath () {
-    ;(this.crossButtonSvgPathEl = cElNS(xmlns, 'path')),
+    (this.crossButtonSvgPathEl = cElNS(xmlns, 'path')),
       this.crossButtonSvgPathEl.setAttributeNS(
         null,
         'd',
@@ -198,7 +198,7 @@ class ESChat {
         'fill',
         this.config.colors.primary
       ),
-      this.crossButtonSvgEl.append(this.crossButtonSvgPathEl)
+      this.crossButtonSvgEl.append(this.crossButtonSvgPathEl);
   }
   formChatBoxHeaderDismiss () {
     this.formCrossVector(),
@@ -216,7 +216,7 @@ class ESChat {
       this.chatBoxHeaderEl.append(this.chatBoxDismissButtonEl)
   }
   formChatBoxBody () {
-    ;(this.chatBoxBodyEl = cEL('div')),
+    (this.chatBoxBodyEl = cEL('div')),
       (this.chatBoxCloudEl = cEL('div')),
       (this.chatBoxCloudContentEl = cEL('div')),
       (this.chatBoxCloudSenderEl = cEL('h5')),
@@ -231,7 +231,7 @@ class ESChat {
       this.chatBoxCloudContentEl.classList.add('es-content'),
       this.chatBoxCloudSenderEl.classList.add('es-sender'),
       this.chatBoxCloudMessageEl.classList.add('es-message'),
-      this.chatBoxCloudTimeEl.classList.add('es-time')
+      this.chatBoxCloudTimeEl.classList.add('es-time');
   }
   injectChatBoxBody () {
     this.chatBoxCloudContentEl.append(this.chatBoxCloudSenderEl),
@@ -242,7 +242,7 @@ class ESChat {
       this.chatBoxEl.append(this.chatBoxBodyEl)
   }
   formChatBoxFooter () {
-    ;(this.chatBoxFooterEl = cEL('div')),
+    (this.chatBoxFooterEl = cEL('div')),
       (this.chatBoxFooterButtonEl = cEL('a')),
       (this.chatBoxFooterButtonIconEl = cElNS(xmlns, 'svg')),
       (this.chatBoxFooterButtonIconPathEl = cElNS(xmlns, 'path')),
@@ -272,7 +272,7 @@ class ESChat {
       this.chatBoxFooterButtonEl.setAttribute('href', this.config.buttonLink),
       this.chatBoxFooterButtonEl.setAttribute('target', '_blank'),
       this.chatBoxFooterButtonLabelEl.classList.add('label'),
-      this.chatBoxFooterPoweredEl.classList.add('es-powered-by')
+      this.chatBoxFooterPoweredEl.classList.add('es-powered-by');
   }
   injectChatBoxFooter () {
     this.chatBoxFooterButtonIconEl.append(this.chatBoxFooterButtonIconPathEl),
@@ -288,7 +288,7 @@ class ESChat {
   }
   render () {
     this.chatButtonEl.addEventListener('click', () => {
-      ;(jQ('.es-chat-cloud .time').innerHTML = this.time =
+      (jQ('.es-chat-cloud .es-time').innerHTML = this.time =
         new Date().toLocaleString([], {
           hour: 'numeric',
           minute: '2-digit',
