@@ -226,7 +226,7 @@
   min-width: 214px;
   row-gap: 5px;
 }
-.es-chat-container .es-chat-box .es-body .chat-cloud .es-content:before {
+.es-chat-container .es-chat-box .es-body .es-chat-cloud .es-content:before {
   content: "";
   border-top: 9px solid #fff;
   border-left: 8px solid transparent;
@@ -235,14 +235,14 @@
   right: 100%;
   top: 0;
 }
-.es-chat-container .es-chat-box .es-body .chat-cloud .es-content .es-sender {
+.es-chat-container .es-chat-box .es-body .es-chat-cloud .es-content .es-sender {
   color: #34333254;
   font-size: 14px;
   font-weight: 500;
   line-height: 18px;
   margin-bottom: 5px;
 }
-.es-chat-container .es-chat-box .es-body .chat-cloud .es-content .es-message {
+.es-chat-container .es-chat-box .es-body .es-chat-cloud .es-content .es-message {
   background-color: #fff;
   color: #343332;
   font-size: 16px;
@@ -250,7 +250,7 @@
   line-height: 16px;
   margin-bottom: 5px;
 }
-.es-chat-container .es-chat-box .es-body .chat-cloud .es-content .es-time {
+.es-chat-container .es-chat-box .es-body .es-chat-cloud .es-content .es-time {
   color: #a0a0a0;
   font-size: 12px;
   font-weight: 400;
