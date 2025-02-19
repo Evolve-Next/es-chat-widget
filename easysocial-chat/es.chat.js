@@ -67,9 +67,9 @@ class ESChat {
       this.body.appendChild(this.chatContainerEl)
   }
   formButton () {
-    (this.chatButtonEl = cEL('a')),
+    (this.chatButtonEl = cEL('div')),
       (this.chatButtonEl.className = 'es-chat-iconButton'),
-      (this.chatButtonEl.href = 'javascript:void(0);'),
+      (this.chatButtonEl.role = 'button'),
       (this.chatButtonEl.ariaLabel = 'Chat With Us'),
       (this.chatButtonEl.tabIndex = '0'),
       this.formButtonVector();
@@ -202,10 +202,10 @@ class ESChat {
   }
   formChatBoxHeaderDismiss () {
     this.formCrossVector(),
-      (this.chatBoxDismissButtonEl = cEL('a')),
+      (this.chatBoxDismissButtonEl = cEL('div')),
       this.chatBoxDismissButtonEl.setAttribute('aria-label', 'dismiss'),
       (this.chatBoxDismissButtonEl.className = 'es-chat-dismiss'),
-      (this.chatBoxDismissButtonEl.href = 'javascript:void(0);'),
+      (this.chatBoxDismissButtonEl.role = 'button'),
       this.chatBoxDismissButtonEl.addEventListener(
         'click',
         this.onChatButtonClick
