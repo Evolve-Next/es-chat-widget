@@ -54,7 +54,7 @@ class ESChat {
       this.chatContainerEl.classList.add('es-chat-container'),
       this.chatContainerEl.classList.add(
         void 0 !== this.config.orientation &&
-          'es-left' === this.config.orientation
+          'left' === this.config.orientation
           ? 'es-left'
           : 'es-right'
       ),
