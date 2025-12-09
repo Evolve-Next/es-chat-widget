@@ -291,11 +291,12 @@ class ESChat {
     (this.notificationBubbleEl = cEL('div')),
       this.notificationBubbleEl.classList.add('es-notification-bubble'),
       (this.notificationBubbleTextEl = cEL('p')),
-      (this.notificationBubbleTextEl.textContent = 'Hello! Chat with us on WhatsApp'),
+      (this.notificationBubbleTextEl.textContent = 'Hey! Need assistance?'),
       (this.notificationBubbleCloseEl = cEL('span')),
       this.notificationBubbleCloseEl.classList.add('close'),
       (this.notificationBubbleCloseEl.innerHTML = '&times;'),
-      (this.chatButtonClicked = !1)
+      (this.chatButtonClicked = !1),
+      (this.notificationSound = new Audio('./sound.mp3'))
   }
   injectNotificationBubble () {
     this.notificationBubbleEl.append(this.notificationBubbleTextEl),
@@ -306,6 +307,7 @@ class ESChat {
     setTimeout(() => {
       if (!this.chatButtonClicked) {
         this.notificationBubbleEl.style.display = 'flex'
+        this.notificationSound.play().catch(e => console.log('Sound play failed:', e))
         requestAnimationFrame(() => {
           requestAnimationFrame(() => {
             this.notificationBubbleEl.classList.add('show')
@@ -330,7 +332,7 @@ class ESChat {
             hour12: !0
           })),
         this.hideNotificationBubble(),
-        setTimeout(() => this.onChatButtonClick(), 300)
+        setTimeout(() => this.onChatButtonClick(), 100)
     }),
       this.notificationBubbleCloseEl.addEventListener('click', () =>
         this.hideNotificationBubble()

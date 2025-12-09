@@ -279,6 +279,7 @@ class ESChat {
     this.notificationBubbleCloseEl.classList.add('close');
     this.notificationBubbleCloseEl.innerHTML = '&times;';
     this.chatButtonClicked = false;
+    this.notificationSound = new Audio('./sound.mp3');
   }
   injectNotificationBubble() {
     this.notificationBubbleEl.append(this.notificationBubbleTextEl);
@@ -289,6 +290,7 @@ class ESChat {
     setTimeout(() => {
       if (!this.chatButtonClicked) {
         this.notificationBubbleEl.style.display = 'flex';
+        this.notificationSound.play().catch(e => console.log('Sound play failed:', e));
         requestAnimationFrame(() => {
           requestAnimationFrame(() => {
             this.notificationBubbleEl.classList.add('show');
@@ -312,7 +314,7 @@ class ESChat {
         hour12: true
       });
       this.hideNotificationBubble();
-      setTimeout(() => this.onChatButtonClick(), 300);
+      setTimeout(() => this.onChatButtonClick(), 100);
     });
     this.chatBoxFooterButtonEl.addEventListener('click', this.onChatButtonClick);
 
