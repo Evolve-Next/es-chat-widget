@@ -307,6 +307,7 @@ class ESChat {
         minute: '2-digit',
         hour12: true
       });
+      this.hideNotificationBubble();
       setTimeout(() => this.onChatButtonClick(), 300);
     });
     this.chatBoxFooterButtonEl.addEventListener('click', this.onChatButtonClick);
