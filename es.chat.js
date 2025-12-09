@@ -278,6 +278,7 @@ class ESChat {
     this.notificationBubbleCloseEl = cEL('span');
     this.notificationBubbleCloseEl.classList.add('close');
     this.notificationBubbleCloseEl.innerHTML = '&times;';
+    this.chatButtonClicked = false;
   }
   injectNotificationBubble() {
     this.notificationBubbleEl.append(this.notificationBubbleTextEl);
@@ -286,12 +287,14 @@ class ESChat {
   }
   showNotificationBubble() {
     setTimeout(() => {
-      this.notificationBubbleEl.style.display = 'flex';
-      requestAnimationFrame(() => {
+      if (!this.chatButtonClicked) {
+        this.notificationBubbleEl.style.display = 'flex';
         requestAnimationFrame(() => {
-          this.notificationBubbleEl.classList.add('show');
+          requestAnimationFrame(() => {
+            this.notificationBubbleEl.classList.add('show');
+          });
         });
-      });
+      }
     }, 10000);
   }
   hideNotificationBubble() {
@@ -302,6 +305,7 @@ class ESChat {
   }
   render() {
     this.chatButtonEl.addEventListener('click', () => {
+      this.chatButtonClicked = true;
       $('.chat-cloud .time').innerHTML = this.time = new Date().toLocaleString([], {
         hour: 'numeric',
         minute: '2-digit',
