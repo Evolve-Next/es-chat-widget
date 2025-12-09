@@ -291,7 +291,7 @@ class ESChat {
     (this.notificationBubbleEl = cEL('div')),
       this.notificationBubbleEl.classList.add('es-notification-bubble'),
       (this.notificationBubbleTextEl = cEL('p')),
-      (this.notificationBubbleTextEl.textContent = 'Hey! Need assistance?'),
+      (this.notificationBubbleTextEl.textContent = 'Hey there! Need assistance?'),
       (this.notificationBubbleCloseEl = cEL('span')),
       this.notificationBubbleCloseEl.classList.add('close'),
       (this.notificationBubbleCloseEl.innerHTML = '&times;'),
