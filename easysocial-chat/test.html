@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ES Chat Widget - Test</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 40px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            margin: 0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+        h1 {
+            color: #333;
+            margin-bottom: 10px;
+        }
+        .subtitle {
+            color: #666;
+            margin-bottom: 30px;
+        }
+        .instruction {
+            background: #f0f7ff;
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid #2196F3;
+            margin-bottom: 20px;
+        }
+        .instruction h3 {
+            margin-top: 0;
+            color: #1976D2;
+        }
+        .instruction ol {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+        .instruction li {
+            margin: 8px 0;
+            line-height: 1.6;
+        }
+        .code-block {
+            background: #263238;
+            color: #aed581;
+            padding: 15px;
+            border-radius: 5px;
+            font-family: 'Courier New', monospace;
+            margin: 10px 0;
+            overflow-x: auto;
+        }
+        .feature-list {
+            background: #fff3cd;
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid #ffc107;
+        }
+        .feature-list h3 {
+            margin-top: 0;
+            color: #ff6f00;
+        }
+        .feature-list ul {
+            list-style: none;
+            padding: 0;
+        }
+        .feature-list li::before {
+            content: "✓ ";
+            color: #4caf50;
+            font-weight: bold;
+            margin-right: 8px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>ES Chat Widget Testing</h1>
+        <p class="subtitle">WhatsApp Chat Widget with Auto-Popup Notification</p>
+
+        <div class="instruction">
+            <h3>📋 How to Test</h3>
+            <ol>
+                <li><strong>Wait 10 seconds</strong> - A notification bubble will appear automatically</li>
+                <li><strong>Click the bubble</strong> - Opens the chat widget</li>
+                <li><strong>Click the × button</strong> - Dismisses the bubble</li>
+                <li><strong>Refresh the page</strong> - The bubble won't show again (saved in localStorage)</li>
+            </ol>
+        </div>
+
+        <div class="feature-list">
+            <h3>✨ Features Implemented</h3>
+            <ul>
+                <li>Auto-popup notification after 10 seconds</li>
+                <li>Shows once per session (localStorage)</li>
+                <li>Smooth slide-up animation</li>
+                <li>Click to open chat widget</li>
+                <li>Dismissible with close button</li>
+                <li>Responsive design</li>
+            </ul>
+        </div>
+
+        <div class="instruction">
+            <h3>🔄 Reset Test</h3>
+            <p>To see the notification again, clear localStorage:</p>
+            <div class="code-block">localStorage.removeItem('es-chat-notification-shown');</div>
+            <p>Then refresh the page.</p>
+        </div>
+
+        <div class="instruction">
+            <h3>🎨 Customization</h3>
+            <p>Edit the notification text in <code>es.chat.js</code> line 294:</p>
+            <div class="code-block">this.notificationBubbleTextEl.textContent = 'Your custom message here'</div>
+        </div>
+    </div>
+
+    <!-- Load the ES Chat Widget -->
+    <script src="./es.chat.js?t=07001d4d-555e-4776-a7ff-b3368c69f4c5"></script>
+</body>
+</html>

@@ -54,7 +54,8 @@ class ESChat {
     const link = cEL('link');
     link.setAttribute('rel', 'stylesheet');
     link.setAttribute('type', 'text/css');
-    link.setAttribute('href', 'https://cdn.easysocial.in/es.chat.min.css');
+    // Load local CSS for testing, change back to CDN for production
+    link.setAttribute('href', './es.chat.css');
     this.head.appendChild(link);
   }
   formContainer() {
@@ -63,10 +64,12 @@ class ESChat {
     this.chatContainerEl.classList.add(this.config.orientation !== undefined && this.config.orientation === 'left' ? 'left' : 'right');
     this.formButton();
     this.formChatBox();
+    this.formNotificationBubble();
   }
   injectContainer() {
     this.injectButton();
     this.injectChatBox();
+    this.injectNotificationBubble();
     this.body.appendChild(this.chatContainerEl);
   }
   formButton() {
@@ -267,6 +270,36 @@ class ESChat {
     this.chatBoxFooterEl.append(this.chatBoxFooterPoweredEl);
     this.chatBoxEl.append(this.chatBoxFooterEl);
   }
+  formNotificationBubble() {
+    this.notificationBubbleEl = cEL('div');
+    this.notificationBubbleEl.classList.add('es-notification-bubble');
+    this.notificationBubbleTextEl = cEL('p');
+    this.notificationBubbleTextEl.textContent = 'Hello! Chat with us on WhatsApp';
+    this.notificationBubbleCloseEl = cEL('span');
+    this.notificationBubbleCloseEl.classList.add('close');
+    this.notificationBubbleCloseEl.innerHTML = '&times;';
+  }
+  injectNotificationBubble() {
+    this.notificationBubbleEl.append(this.notificationBubbleTextEl);
+    this.notificationBubbleEl.append(this.notificationBubbleCloseEl);
+    this.chatContainerEl.prepend(this.notificationBubbleEl);
+  }
+  showNotificationBubble() {
+    setTimeout(() => {
+      this.notificationBubbleEl.style.display = 'flex';
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+          this.notificationBubbleEl.classList.add('show');
+        });
+      });
+    }, 10000);
+  }
+  hideNotificationBubble() {
+    this.notificationBubbleEl.classList.remove('show');
+    setTimeout(() => {
+      this.notificationBubbleEl.style.display = 'none';
+    }, 400);
+  }
   render() {
     this.chatButtonEl.addEventListener('click', () => {
       $('.chat-cloud .time').innerHTML = this.time = new Date().toLocaleString([], {
@@ -277,7 +310,18 @@ class ESChat {
       setTimeout(() => this.onChatButtonClick(), 300);
     });
     this.chatBoxFooterButtonEl.addEventListener('click', this.onChatButtonClick);
+
+    // Notification bubble event listeners
+    this.notificationBubbleCloseEl.addEventListener('click', () => this.hideNotificationBubble());
+    this.notificationBubbleEl.addEventListener('click', (e) => {
+      if (e.target !== this.notificationBubbleCloseEl) {
+        this.hideNotificationBubble();
+        this.chatButtonEl.click();
+      }
+    });
+
     this.injectContainer();
+    this.showNotificationBubble();
   }
 }
 if (token) {
